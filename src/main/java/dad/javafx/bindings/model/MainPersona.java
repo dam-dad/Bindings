@@ -2,7 +2,7 @@ package dad.javafx.bindings.model;
 
 import java.time.LocalDate;
 
-public class Main {
+public class MainPersona {
 
 	public static void main(String[] args) {
 		PersonaFX andres = new PersonaFX();
