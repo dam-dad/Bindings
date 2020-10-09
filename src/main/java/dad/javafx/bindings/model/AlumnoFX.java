@@ -1,6 +1,6 @@
 package dad.javafx.bindings.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.StringProperty;
@@ -8,7 +8,7 @@ import javafx.beans.property.StringProperty;
 public class AlumnoFX {
 	private StringProperty nombre;
 	private StringProperty apellidos;
-	private ObjectProperty<Date> fechaNacimiento;
+	private ObjectProperty<LocalDate> fechaNacimiento;
 
 	public StringProperty nombreProperty() {
 		return this.nombre;
@@ -34,15 +34,15 @@ public class AlumnoFX {
 		this.apellidosProperty().set(apellidos);
 	}
 
-	public ObjectProperty<Date> fechaNacimientoProperty() {
+	public ObjectProperty<LocalDate> fechaNacimientoProperty() {
 		return this.fechaNacimiento;
 	}
 
-	public Date getFechaNacimiento() {
+	public LocalDate getFechaNacimiento() {
 		return this.fechaNacimientoProperty().get();
 	}
 
-	public void setFechaNacimiento(final Date fechaNacimiento) {
+	public void setFechaNacimiento(final LocalDate fechaNacimiento) {
 		this.fechaNacimientoProperty().set(fechaNacimiento);
 	}
 

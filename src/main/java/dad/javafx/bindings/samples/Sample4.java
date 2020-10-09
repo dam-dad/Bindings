@@ -1,6 +1,7 @@
 package dad.javafx.bindings.samples;
 
 import javafx.application.Application;
+import javafx.beans.binding.Bindings;
 import javafx.beans.binding.StringExpression;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.geometry.Pos;
@@ -29,10 +30,7 @@ public class Sample4 extends Application {
 				.concat(primaryStage.yProperty().asString())
 				.concat(")");
 		
-		widthLabel.textProperty().bind(
-				new SimpleStringProperty("ancho=")
-				.concat(primaryStage.widthProperty().asString())
-				);
+		widthLabel.textProperty().bind(Bindings.concat("ancho=", primaryStage.widthProperty().asString()));
 
 		heightLabel.textProperty().bind(
 				new SimpleStringProperty("alto=")

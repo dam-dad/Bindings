@@ -5,9 +5,9 @@ public class Main {
 	public static void main(String[] args) {
 
 //		CustomBindingSample.main(args);
-		TwinStages.main(args);
+//		TwinStages.main(args);
 //		Bidireccional.main(args);
-//		Sumador.main(args);
+		Sumador.main(args);
 //		Celsius2Fahrenheit.main(args);
 		
 //		Sample0.main(args);

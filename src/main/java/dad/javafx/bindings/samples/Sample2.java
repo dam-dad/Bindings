@@ -1,5 +1,6 @@
 package dad.javafx.bindings.samples;
 
+import javafx.beans.binding.Bindings;
 import javafx.beans.binding.StringExpression;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -8,13 +9,16 @@ public class Sample2 {
 	
 	public static void main(String[] args) {
 		
-		StringProperty nombre = new SimpleStringProperty();
-		StringProperty apellidos = new SimpleStringProperty();
-		StringProperty nombreCompleto = new SimpleStringProperty();
-
-		StringExpression expr = nombre.concat("---").concat(apellidos);
+		StringProperty nombre = new SimpleStringProperty("Perico");
+		StringProperty apellidos = new SimpleStringProperty("Palotes");
 		
-		nombreCompleto.bind(expr);
+		StringProperty nombreCompleto = new SimpleStringProperty();
+		nombreCompleto.addListener((o, ov, nv) -> System.out.println("ov=" + ov + "/nv=" + nv)); 
+
+		StringExpression expr1 = nombre.concat("---").concat(apellidos);
+//		StringExpression expr2 = Bindings.concat(nombre, "---", apellidos);
+		
+		nombreCompleto.bind(expr1);
 		
 		nombre.set("Chuck");
 

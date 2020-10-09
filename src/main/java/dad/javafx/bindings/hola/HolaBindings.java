@@ -4,6 +4,7 @@ import dad.javafx.bindings.custom.StringBindings;
 import javafx.application.Application;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.StringBinding;
+import javafx.beans.property.StringProperty;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -30,7 +31,7 @@ public class HolaBindings extends Application {
 		
 		// establezco los bindeos
 		
-		StringBinding nombre = StringBindings.trim(nombreText.textProperty());
+		StringProperty nombre = nombreText.textProperty();
 
 		saludoLabel.textProperty().bind(
 				Bindings

@@ -9,9 +9,9 @@ public class Sample1 {
 		
 		StringProperty nombre = new SimpleStringProperty();
 				
-		nombre.addListener((observable, oldValue, newValue) -> {
-			System.out.println("valor anterior: " + oldValue);
-			System.out.println("valor nuevo: " + newValue);
+		nombre.addListener((o, ov, nv) -> {
+			System.out.println("valor anterior: " + ov);
+			System.out.println("valor nuevo: " + nv);
 		});
 
 		nombre.set("Mariano");

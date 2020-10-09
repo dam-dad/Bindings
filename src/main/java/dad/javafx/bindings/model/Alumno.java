@@ -1,11 +1,12 @@
 package dad.javafx.bindings.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Alumno {
+
 	private String nombre;
 	private String apellidos;
-	private Date fechaNacimiento;
+	private LocalDate fechaNacimiento;
 
 	public String getNombre() {
 		return nombre;
@@ -23,11 +24,11 @@ public class Alumno {
 		this.apellidos = apellidos;
 	}
 
-	public Date getFechaNacimiento() {
+	public LocalDate getFechaNacimiento() {
 		return fechaNacimiento;
 	}
 
-	public void setFechaNacimiento(Date fechaNacimiento) {
+	public void setFechaNacimiento(LocalDate fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 

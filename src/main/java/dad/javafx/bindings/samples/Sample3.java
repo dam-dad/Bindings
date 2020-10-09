@@ -41,6 +41,7 @@ public class Sample3 extends Application {
 				concat(apellidosText.textProperty());
 		
 		completoLabel.textProperty().bind(expr);
+		
 	}
 
 	public static void main(String[] args) {

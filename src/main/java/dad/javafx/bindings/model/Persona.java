@@ -3,6 +3,7 @@ package dad.javafx.bindings.model;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
+// bean java
 public class Persona {
 	private String nombre;
 	private String apellidos;

@@ -11,11 +11,15 @@ public class Celsius2Fahrenheit {
 		DoubleProperty c = new SimpleDoubleProperty();
 		
 		// conversión de grados celsius a grados fahrenheit
+		// f = c * (9/5) + 32
 		f.bind(c.multiply(9/5).add(32));
+		f.addListener((o, ov, nv) -> System.out.println("f=" + nv));
 		
 		c.set(34.0);
-		
-		System.out.println(f.get());
+		c.set(0.0);
+		c.set(4.0);
+		c.set(3.0);
+		c.set(1234.0);
 		
 	}
 

@@ -1,7 +1,6 @@
 package dad.javafx.bindings.samples;
 
 import javafx.application.Application;
-import javafx.beans.binding.Bindings;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -17,9 +16,9 @@ public class Sample6 extends Application {
 	
 	private TextField numeroText;
 	
-	private StringProperty textoProperty = new SimpleStringProperty(this, "texto");
+	private StringProperty texto = new SimpleStringProperty("3,1416");
 	
-	private DoubleProperty numeroProperty = new SimpleDoubleProperty(this, "numero");
+	private DoubleProperty numero = new SimpleDoubleProperty(6.25);
 
 	@Override
 	public void start(Stage primaryStage) throws Exception {
@@ -33,20 +32,16 @@ public class Sample6 extends Application {
 
 		Scene scene = new Scene(root, 320, 200);
 
-//		numeroText.textProperty().addListener((ob, oldValue, newValue) -> System.out.println("listener1: " + newValue));
-
-		textoProperty.bindBidirectional(numeroText.textProperty());
-//		textoProperty.addListener((ob, oldValue, newValue) -> System.out.println("listener2: " + newValue));
+		numeroText.textProperty().bindBidirectional(texto);
 		
-		Bindings.bindBidirectional(textoProperty, numeroProperty, new NumberStringConverter());
+		texto.bindBidirectional(numero, new NumberStringConverter());
 		
-		numeroProperty.addListener((o,ov,nv) -> System.out.println(nv));
+		numero.addListener((o,ov,nv) -> System.out.println(nv));
 		
 		primaryStage.setScene(scene);
 		primaryStage.setTitle("Binding sample 2");
 		primaryStage.show();
 		
-		numeroProperty.set(123.5);
 	}
 
 	public static void main(String[] args) {

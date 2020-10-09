@@ -3,12 +3,15 @@ package dad.javafx.bindings.model;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.ReadOnlyIntegerWrapper;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+// bean javafx
 public class PersonaFX {
 	private StringProperty nombre = new SimpleStringProperty();
 	private StringProperty apellidos = new SimpleStringProperty();
@@ -23,16 +26,16 @@ public class PersonaFX {
 		});
 	}
 
-	public String getNombre() {
-		return nombre.get();
+	public final StringProperty nombreProperty() {
+		return this.nombre;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre.set(nombre);
+	public final String getNombre() {
+		return this.nombreProperty().get();
 	}
 
-	public StringProperty nombreProperty() {
-		return nombre;
+	public final void setNombre(final String nombre) {
+		this.nombreProperty().set(nombre);
 	}
 
 	public final StringProperty apellidosProperty() {
@@ -89,6 +92,19 @@ public class PersonaFX {
 
 	public final int getEdad() {
 		return this.edadProperty().get();
+	}
+
+	public static void main(String[] args) {
+		IntegerProperty edad = new SimpleIntegerProperty();
+		edad.addListener((o, ov, nv) -> System.out.println("edad=" + nv));
+
+		PersonaFX p = new PersonaFX();
+		p.setFechaNacimiento(LocalDate.of(1800, 12, 24));
+
+		edad.bind(p.edadProperty());
+		
+		p.setFechaNacimiento(LocalDate.of(1990, 4, 7));
+
 	}
 
 }
