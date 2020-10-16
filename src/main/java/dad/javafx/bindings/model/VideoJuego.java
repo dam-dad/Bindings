@@ -1,20 +1,21 @@
 package dad.javafx.bindings.model;
 
-import java.time.LocalDate;
-
 import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class VideoJuego {
+public class Videojuego {
+
 	private StringProperty nombre = new SimpleStringProperty();
 	private StringProperty descripcion = new SimpleStringProperty();
 	private ObjectProperty<Genero> genero = new SimpleObjectProperty<Genero>();
-	private ObjectProperty<LocalDate> fechaLanzamiento = new SimpleObjectProperty<LocalDate>();
 	private DoubleProperty precio = new SimpleDoubleProperty();
+	private IntegerProperty pegi = new SimpleIntegerProperty();
 
 	public final StringProperty nombreProperty() {
 		return this.nombre;
@@ -52,18 +53,6 @@ public class VideoJuego {
 		this.generoProperty().set(genero);
 	}
 
-	public final ObjectProperty<LocalDate> fechaLanzamientoProperty() {
-		return this.fechaLanzamiento;
-	}
-
-	public final LocalDate getFechaLanzamiento() {
-		return this.fechaLanzamientoProperty().get();
-	}
-
-	public final void setFechaLanzamiento(final LocalDate fechaLanzamiento) {
-		this.fechaLanzamientoProperty().set(fechaLanzamiento);
-	}
-
 	public final DoubleProperty precioProperty() {
 		return this.precio;
 	}
@@ -74,6 +63,18 @@ public class VideoJuego {
 
 	public final void setPrecio(final double precio) {
 		this.precioProperty().set(precio);
+	}
+
+	public final IntegerProperty pegiProperty() {
+		return this.pegi;
+	}
+
+	public final int getPegi() {
+		return this.pegiProperty().get();
+	}
+
+	public final void setPegi(final int pegi) {
+		this.pegiProperty().set(pegi);
 	}
 
 }

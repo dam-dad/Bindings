@@ -3,10 +3,9 @@ package dad.javafx.bindings.model;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
-import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.ReadOnlyIntegerWrapper;
-import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -18,12 +17,17 @@ public class PersonaFX {
 	private ObjectProperty<Sexo> sexo = new SimpleObjectProperty<>();
 	private ObjectProperty<LocalDate> fechaNacimiento = new SimpleObjectProperty<>();
 	private StringProperty nacionalidad = new SimpleStringProperty();
+	private ReadOnlyStringWrapper nombreCompleto = new ReadOnlyStringWrapper();
 	private ReadOnlyIntegerWrapper edad = new ReadOnlyIntegerWrapper();
 
 	public PersonaFX() {
+
+		nombreCompleto.bind(nombre.concat(" ").concat(apellidos));
+
 		fechaNacimiento.addListener((o, ov, nv) -> {
 			edad.set((int) nv.until(LocalDate.now(), ChronoUnit.YEARS));
 		});
+
 	}
 
 	public final StringProperty nombreProperty() {
@@ -86,25 +90,20 @@ public class PersonaFX {
 		this.nacionalidadProperty().set(nacionalidad);
 	}
 
+	public final javafx.beans.property.ReadOnlyStringProperty nombreCompletoProperty() {
+		return this.nombreCompleto.getReadOnlyProperty();
+	}
+
+	public final String getNombreCompleto() {
+		return this.nombreCompletoProperty().get();
+	}
+
 	public final javafx.beans.property.ReadOnlyIntegerProperty edadProperty() {
 		return this.edad.getReadOnlyProperty();
 	}
 
 	public final int getEdad() {
 		return this.edadProperty().get();
-	}
-
-	public static void main(String[] args) {
-		IntegerProperty edad = new SimpleIntegerProperty();
-		edad.addListener((o, ov, nv) -> System.out.println("edad=" + nv));
-
-		PersonaFX p = new PersonaFX();
-		p.setFechaNacimiento(LocalDate.of(1800, 12, 24));
-
-		edad.bind(p.edadProperty());
-		
-		p.setFechaNacimiento(LocalDate.of(1990, 4, 7));
-
 	}
 
 }

@@ -3,46 +3,49 @@ package dad.javafx.bindings.model;
 import java.time.LocalDate;
 
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class AlumnoFX {
-	private StringProperty nombre;
-	private StringProperty apellidos;
-	private ObjectProperty<LocalDate> fechaNacimiento;
 
-	public StringProperty nombreProperty() {
+	private StringProperty nombre = new SimpleStringProperty();
+	private StringProperty apellidos = new SimpleStringProperty();
+	private ObjectProperty<LocalDate> fechaNacimiento = new SimpleObjectProperty<LocalDate>();
+
+	public final StringProperty nombreProperty() {
 		return this.nombre;
 	}
 
-	public String getNombre() {
+	public final String getNombre() {
 		return this.nombreProperty().get();
 	}
 
-	public void setNombre(final String nombre) {
+	public final void setNombre(final String nombre) {
 		this.nombreProperty().set(nombre);
 	}
 
-	public StringProperty apellidosProperty() {
+	public final StringProperty apellidosProperty() {
 		return this.apellidos;
 	}
 
-	public String getApellidos() {
+	public final String getApellidos() {
 		return this.apellidosProperty().get();
 	}
 
-	public void setApellidos(final String apellidos) {
+	public final void setApellidos(final String apellidos) {
 		this.apellidosProperty().set(apellidos);
 	}
 
-	public ObjectProperty<LocalDate> fechaNacimientoProperty() {
+	public final ObjectProperty<LocalDate> fechaNacimientoProperty() {
 		return this.fechaNacimiento;
 	}
 
-	public LocalDate getFechaNacimiento() {
+	public final LocalDate getFechaNacimiento() {
 		return this.fechaNacimientoProperty().get();
 	}
 
-	public void setFechaNacimiento(final LocalDate fechaNacimiento) {
+	public final void setFechaNacimiento(final LocalDate fechaNacimiento) {
 		this.fechaNacimientoProperty().set(fechaNacimiento);
 	}
 

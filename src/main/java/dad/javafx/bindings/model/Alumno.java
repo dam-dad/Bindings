@@ -2,6 +2,7 @@ package dad.javafx.bindings.model;
 
 import java.time.LocalDate;
 
+// java bean
 public class Alumno {
 
 	private String nombre;

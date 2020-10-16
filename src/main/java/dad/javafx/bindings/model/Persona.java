@@ -10,6 +10,14 @@ public class Persona {
 	private Sexo sexo;
 	private LocalDate fechaNacimiento;
 	private String nacionalidad;
+	
+	public String getNombreCompleto() {
+		return nombre + " " + apellidos;
+	}
+	
+	public Integer getEdad() {
+		return (int)fechaNacimiento.until(LocalDate.now(), ChronoUnit.YEARS);
+	}
 
 	public String getNombre() {
 		return nombre;
@@ -33,10 +41,6 @@ public class Persona {
 
 	public void setSexo(Sexo sexo) {
 		this.sexo = sexo;
-	}
-
-	public Integer getEdad() {
-		return (int)fechaNacimiento.until(LocalDate.now(), ChronoUnit.YEARS);
 	}
 
 	public LocalDate getFechaNacimiento() {
