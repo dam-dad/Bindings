@@ -9,7 +9,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class Videojuego {
+public class VideoJuego {
 
 	private StringProperty nombre = new SimpleStringProperty();
 	private StringProperty descripcion = new SimpleStringProperty();
